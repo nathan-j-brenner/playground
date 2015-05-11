@@ -7,7 +7,9 @@ var rl = readline.createInterface({
 
 rl.question("Pick a number", function(numberA){
 	rl.question("Pick a second number", function(numberB){
-		console.log(numberA + " + " + numberB + " = " + (parseInt(numberA) + parseInt(numberB));
+		numberA = parseInt(numberA);
+		numberB = parseInt(numberB);
+		console.log(numberA + " + " + numberB + " = " + (numberA + numberB));
 	});
 });
 
