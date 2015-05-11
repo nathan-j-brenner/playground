@@ -10,9 +10,6 @@ rl.question("Pick a number", function(numberA){
 		numberA = parseInt(numberA);
 		numberB = parseInt(numberB);
 		console.log(numberA + " + " + numberB + " = " + (numberA + numberB));
+		rl.close();
 	});
 });
-
-// rl.question("Pick a second number", function(numberB){
-// 	console.log(numberA + " + " + numberB + " = " + (numberA + numberB));
-// });
