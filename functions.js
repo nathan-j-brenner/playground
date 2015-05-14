@@ -104,25 +104,28 @@
 // findTrueLove();
 
 
-
-function once(f){
-	knownOnce = false;
+// mod 5 % 2 gives 1, which is the remainder
+//implement filter function
+var numbers = [1, 2, 3, 4, 5, 6];
+function filter(f, divider){
+	var array = [];
 	return function(){
-		if(knownOnce === false){
-			knownOnce = f();
+		for(var i = 0; i<numbers.length; i++){
+			if((numbers[i]%divider)===0){ //if the items in the numbers array are divisible by divider
+				//push only those numbers into array
+				array.push(numbers[i]);			
+			}
 		}
-		return knownOnce;
+		if(array.length===0) {
+			console.log("None of the numbers are dividable by " + divider);
+		} else {
+			console.log(array);
+		}
 	};
+
 }
-
-var findTrueLove = once(function(){
-	console.log("Looking for true love");
-});
-
-findTrueLove();
-findTrueLove();
-
-
+var evenNumbers = filter(numbers, 7);
+evenNumbers();
 
 
 
