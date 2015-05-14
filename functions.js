@@ -106,34 +106,85 @@
 
 // mod 5 % 2 gives 1, which is the remainder
 //implement filter function
-var numbers = [1, 2, 3, 4, 5, 6];
-var numbers2 = [7, 8, 9, 10, 11, 12];
-function filter(arrayArgument, divider){ //filter function  takes two arguments: an array and a number that will applied to each item in the array argument
-	var filteredArray = [];  //this creates an empty array that will store the values that meet the qualifications of the diviser
-	return function(){
-		for(var i = 0; i<arrayArgument.length; i++){ //loops through each item in the array argument
-			if((arrayArgument[i]%divider)===0){ //if the items in the array argument are divisible by divider
-				filteredArray.push(arrayArgument[i]); //then all those array items are put into the filered array		
-			}
-		}
-		if(filteredArray.length===0) { //if the filtered array has no items
-			console.log("None of the numbers are dividable by " + divider);
-		} else { //if the filtered array has items, then it prints out those items
-			for(var n = 0; n<filteredArray.length; n++){ //this loop just removes the array syntax
-				console.log(filteredArray[n]);
-			}
-		}
-	};
+// var numbers = [1, 2, 3, 4, 5, 6];
+// var numbers2 = [7, 8, 9, 10, 11, 12];
+// function filter(arrayArgument, divider){ //filter function  takes two arguments: an array and a number that will applied to each item in the array argument
+// 	var filteredArray = [];  //this creates an empty array that will store the values that meet the qualifications of the diviser
+// 	return function(){
+// 		for(var i = 0; i<arrayArgument.length; i++){ //loops through each item in the array argument
+// 			if((arrayArgument[i]%divider)===0){ //if the items in the array argument are divisible by divider
+// 				filteredArray.push(arrayArgument[i]); //then all those array items are put into the filered array		
+// 			}
+// 		}
+// 		if(filteredArray.length===0) { //if the filtered array has no items
+// 			console.log("None of the numbers are dividable by " + divider);
+// 		} else { //if the filtered array has items, then it prints out those items
+// 			for(var n = 0; n<filteredArray.length; n++){ //this loop just removes the array syntax
+// 				console.log(filteredArray[n]);
+// 			}
+// 		}
+// 	};
 
-}
-var evenNumbers = filter(numbers, 2);
-evenNumbers();
-
-
+// }
+// var evenNumbers = filter(numbers, 2);
+// evenNumbers();
 
 
+//improved version
+// function filter(array, fn){
+// 	var filtered = [];
+// 	array.forEach(function(element) {
+// 		if(fn(element)){
+// 			filtered.push(element);
+// 		}
+// 	})
+// 	return filtered;
+// }
+
+// var numbers = [1-10]
+// var otherNumbers
+
+// var sharedNumbers = filter(numbers, function(num) {return otherNumbers.indexOf(num) !== -1})
+
+// reduce
+// var arrays = [[10], ['string'], [{}]];
+// var result = [];
+// arrays.forEach(function(a) {result = result.concat(a);});
+// result; //=> [10, 'string', {}]
+
+// var numbers = [1, 2, 3, 4, 5, 6];
+// var sum = 0;
+// numbers.forEach(function(n) {
+//   sum += n;
+// });
+// console.log(sum); //=> 21
 
 
+var pairs = [
+	['name', 'JSI'],
+	['location', { city: 'Portland', 'state': 'OR'}],
+	['school', 'PCS']
+];
+// var result = [];
+// pairs.forEach(
+// 	function(a, b) {
+// 	result = result.concat('{' + a + ':' + b + '}');
+// 	console.log(pairs);
+
+// 	}, {});
+
+var obj = pairs.reduce(function(accumulatingValue, currentValue){
+	//currentVale looks [key, value]
+	var key = currentValue[0];
+	var value = currentValue[1];
+	accumulatingValue[key] = value;
+	return accumulatingValue;
+}, {});
+
+console.log(obj);
+
+
+// pairs.reduce(function(concatenated, a) {return concatenated.concat(a);}, {});
 
 
 
