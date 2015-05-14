@@ -107,25 +107,28 @@
 // mod 5 % 2 gives 1, which is the remainder
 //implement filter function
 var numbers = [1, 2, 3, 4, 5, 6];
-function filter(f, divider){
-	var array = [];
+var numbers2 = [7, 8, 9, 10, 11, 12];
+function filter(arrayArgument, divider){ //filter function  takes two arguments: an array and a number that will applied to each item in the array argument
+	var filteredArray = [];  //this creates an empty array that will store the values that meet the qualifications of the diviser
 	return function(){
-		for(var i = 0; i<numbers.length; i++){
-			if((numbers[i]%divider)===0){ //if the items in the numbers array are divisible by divider
-				//push only those numbers into array
-				array.push(numbers[i]);			
+		for(var i = 0; i<arrayArgument.length; i++){ //loops through each item in the array argument
+			if((arrayArgument[i]%divider)===0){ //if the items in the array argument are divisible by divider
+				filteredArray.push(arrayArgument[i]); //then all those array items are put into the filered array		
 			}
 		}
-		if(array.length===0) {
+		if(filteredArray.length===0) { //if the filtered array has no items
 			console.log("None of the numbers are dividable by " + divider);
-		} else {
-			console.log(array);
+		} else { //if the filtered array has items, then it prints out those items
+			for(var n = 0; n<filteredArray.length; n++){ //this loop just removes the array syntax
+				console.log(filteredArray[n]);
+			}
 		}
 	};
 
 }
-var evenNumbers = filter(numbers, 7);
+var evenNumbers = filter(numbers, 2);
 evenNumbers();
+
 
 
 
