@@ -45,18 +45,18 @@ function counter(x){ //the argument determines what number to start on
 	return function(){
 		console.log(x);
 		x++;
-	}
+	};
 }
 
 
 
-var sequence1 = counter(3);
-var sequence2 = counter(0);
-sequence1(); //=> 0
-sequence1(); //=> 1
-sequence2(); //=> 0
-sequence1(); //=> 2
-sequence2(); //=> 1
+// var sequence1 = counter(3);
+// var sequence2 = counter(0);
+// sequence1(); //=> 0
+// sequence1(); //=> 1
+// sequence2(); //=> 0
+// sequence1(); //=> 2
+// sequence2(); //=> 1
 
 var counter =  //module pattern
 	function(){
@@ -70,14 +70,17 @@ var counter =  //module pattern
 			count(1);
 		},
 		reset: function(){
-		x = 0;
-		console.log(x);
+			// x = val;
+			// if (x===undefined){
+			// 	x="null";
+			// };;
+			console.log(x);
 		}
 	};
 };
 
-// var sequence1 = counter();
-// var sequence2 = counter();
+var sequence1 = counter();
+var sequence2 = counter();
 // sequence1.next(); //=> 0
 // sequence1.next(); //=> 1
 // sequence2.next(); //=> 0
@@ -88,4 +91,11 @@ var counter =  //module pattern
 // sequence1.reset(5); //=> void
 // sequence1.next(); //=> 5
 
-
+var foo = 1;
+function bar() {
+	if (!foo) {
+		var foo = 10;
+	}
+	alert(foo);
+}
+bar();
