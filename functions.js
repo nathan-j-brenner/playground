@@ -160,11 +160,11 @@
 // console.log(sum); //=> 21
 
 
-var pairs = [
-	['name', 'JSI'],
-	['location', { city: 'Portland', 'state': 'OR'}],
-	['school', 'PCS']
-];
+// var pairs = [
+// 	['name', 'JSI'],
+// 	['location', { city: 'Portland', 'state': 'OR'}],
+// 	['school', 'PCS']
+// ];
 // var result = [];
 // pairs.forEach(
 // 	function(a, b) {
@@ -173,24 +173,48 @@ var pairs = [
 
 // 	}, {});
 
-var obj = pairs.reduce(function(accumulatingValue, currentValue){
-	//currentVale looks [key, value]
-	var key = currentValue[0];
-	var value = currentValue[1];
-	accumulatingValue[key] = value;
-	return accumulatingValue;
-}, {});
+// var obj = pairs.reduce(function(accumulatingValue, currentValue){
+// 	//currentVale looks [key, value]
+// 	var key = currentValue[0];
+// 	var value = currentValue[1];
+// 	accumulatingValue[key] = value;
+// 	return accumulatingValue;
+// }, {});
 
-console.log(obj);
+// console.log(obj);
+// big picture structure 
+// learning strategies
+// sequence of topics
 
+// collaboration, comfort zone/discomfort zone
+// demand quality, communicate what you need, count your blessings
 
-// pairs.reduce(function(concatenated, a) {return concatenated.concat(a);}, {});
+//at
 
+function filter(array, fn){
+	var filtered = [];
+	array.forEach(function(element) {
+		if(fn(element)){
+			filtered.push(element);
+		}
+	});
+	return filtered;
+}
 
-
-
-
-
+var numbers = [1, 2, 3, 4, 5, 6, 7];
+var otherNumbers = [1, 3, 5, 7];
+																						   																						
+var sharedNumbers = filter(numbers, function(num) {return otherNumbers.indexOf(num) !== -1};);
+// var array = function at(collection, property){
+// 	atArray = [];
+// 	collection.forEach(function(element){
+// 		if(property(element)){
+// 			atArray.push(element);
+// 		}
+// 	})
+// 	return atArray;
+// };
+// array(["hello", "world", "today"], [1, 3]);
 
 
 
