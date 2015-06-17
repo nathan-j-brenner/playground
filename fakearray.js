@@ -2,25 +2,36 @@
 module.exports = {
   length: 0,
   pop: function() {
-    var returnValue = this[this.length - 1]; //returnValue should be the last element the array
-    this[this.length-1] = undefined; //the last element of the array has a value of undefined
-    this.length--;
-    return returnValue;
+    if(this.length>1){
+      var returnValue = this[this.length - 1]; //returnValue should be the last element the array
+      this[this.length-1] = undefined; //the last element of the array has a value of undefined
+      this.length--;
+      return returnValue;
+    }
   },
   push: function(input) {
-    this[this.length] = input;
-    this.length++;
+    if(input != undefined){
+      this[this.length] = input;
+      this.length++;
+      return this.length;
+    }
   },
-  // shift: function(){
-  //   var returnValue = this[this.length - 1]
-  //   this[this.length-1] = undefined;
-  //   this.length--;
-  //   return returnValue;
-  // },
-  // unshift: function(input){
-  //   this[this.length] = input;
-  //   this.length++;
-  // }
+  shift: function(){
+    if(this.length>1){
+      var returnValue = this[0];
+      this[this[0]] = undefined;
+      this.length--;
+      return returnValue;
+    }
+  },
+  unshift: function(input){
+    for(var i = this.length; i>this.length; i--){
+      this[i+1] = this[i]; 
+    }
+    this[0] = input;
+    this.length++;
+    return this.length;
+  }
 };
 
 
