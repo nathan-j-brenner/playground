@@ -1,10 +1,9 @@
 // module fakearray.js
-var arr = ['a', 'b', 'c'];
 module.exports = {
-  length: 2,
+  length: 0,
   pop: function() {
-    var returnValue = this[this.length - 1];
-    this[this.length-1] = undefined;
+    var returnValue = this[this.length - 1]; //returnValue should be the last element the array
+    this[this.length-1] = undefined; //the last element of the array has a value of undefined
     this.length--;
     return returnValue;
   },
@@ -12,16 +11,16 @@ module.exports = {
     this[this.length] = input;
     this.length++;
   },
-  shift: function(){
-    var returnValue = this[this.length - 1]
-    this[this.length-1] = undefined;
-    this.length--;
-    return returnValue;
-  },
-  unshift: function(input){
-    this[this.length] = input;
-    this.length++;
-  }
+  // shift: function(){
+  //   var returnValue = this[this.length - 1]
+  //   this[this.length-1] = undefined;
+  //   this.length--;
+  //   return returnValue;
+  // },
+  // unshift: function(input){
+  //   this[this.length] = input;
+  //   this.length++;
+  // }
 };
 
 
